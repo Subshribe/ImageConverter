@@ -14,7 +14,7 @@ namespace Image
             Bitmap image = null;
             ImageConverter imageConverter = new ImageConverter();
             string filePath = null;
-            try
+            try // tightare try runt felkällan
             {
                 if (args.Length == 0)
                 {
@@ -31,10 +31,8 @@ namespace Image
                 }
                 else
                 {
-                    while(!importImage.TryIfFilePathIsAnImage(filePath))
-                    {
-                        Console.WriteLine("Select an image to convert!");
-                    }
+                    Console.WriteLine("Wrong input");
+                    Environment.Exit(0);
                 }
             }
             catch (FileNotFoundException)

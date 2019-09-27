@@ -27,7 +27,7 @@ namespace ImageConverterforms
             pictureBox1.Image = imageConverter.ConvertToNegative((Bitmap)pictureBox2.Image);
             pictureBox1.Name = importImg.AddSuffixToFile(openFileDialog1.FileName, "negative");
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             ImageClassLibrary.ImageConverter imageConverter = new ImageClassLibrary.ImageConverter();
             FileHandler importImg = new FileHandler();
@@ -56,7 +56,7 @@ namespace ImageConverterforms
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             saveFileDialog1.FileName = pictureBox1.Name;
             if(saveFileDialog1.ShowDialog() == DialogResult.OK)
