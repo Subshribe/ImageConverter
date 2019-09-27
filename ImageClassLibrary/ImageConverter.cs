@@ -53,38 +53,38 @@ namespace ImageClassLibrary
                     int greenSum = 0;
                     int blueSum = 0;
                     var pixels = new List<Color>();
-                    pixels.Add(blurredImage.GetPixel(x, y));
+                    pixels.Add(image.GetPixel(x, y));
                     if (y > 0)
                     {
-                        pixels.Add(blurredImage.GetPixel(x, y - 1));
+                        pixels.Add(image.GetPixel(x, y - 1));
                     }
                     if (x > 0)
                     {
-                        pixels.Add(blurredImage.GetPixel(x - 1, y));
+                        pixels.Add(image.GetPixel(x - 1, y));
                     }
                     if (x > 0 && y > 0)
                     {
-                        pixels.Add(blurredImage.GetPixel(x - 1, y - 1));
+                        pixels.Add(image.GetPixel(x - 1, y - 1));
                     }
-                    if (y < blurredImage.Height - 1)
+                    if (y < image.Height - 1)
                     {
-                        pixels.Add(blurredImage.GetPixel(x, y + 1));
+                        pixels.Add(image.GetPixel(x, y + 1));
                     }
-                    if (x < blurredImage.Width - 1)
+                    if (x < image.Width - 1)
                     {
-                        pixels.Add(blurredImage.GetPixel(x + 1, y));
+                        pixels.Add(image.GetPixel(x + 1, y));
                     }
-                    if (x < blurredImage.Width - 1 && y < blurredImage.Height - 1)
+                    if (x < image.Width - 1 && y < image.Height - 1)
                     {
-                        pixels.Add(blurredImage.GetPixel(x + 1, y + 1));
+                        pixels.Add(image.GetPixel(x + 1, y + 1));
                     }
-                    if (x > 0 && y < blurredImage.Height - 1)
+                    if (x > 0 && y < image.Height - 1)
                     {
-                        pixels.Add(blurredImage.GetPixel(x - 1, y + 1));
+                        pixels.Add(image.GetPixel(x - 1, y + 1));
                     }
-                    if (x < blurredImage.Width - 1 && y > 0)
+                    if (x < image.Width - 1 && y > 0)
                     {
-                        pixels.Add(blurredImage.GetPixel(x + 1, y - 1));
+                        pixels.Add(image.GetPixel(x + 1, y - 1));
                     }
                     foreach (var pixel in pixels)
                     {

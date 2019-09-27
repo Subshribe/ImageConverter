@@ -9,6 +9,7 @@ namespace testImageConverter // Stor bokstav på namespace
     {
 
         ImageConverter imageConverter = new ImageConverter();
+        FileHandler fileHandler = new FileHandler();
         [Test]
         public void TestConvertToNegative()
         {
@@ -70,7 +71,54 @@ namespace testImageConverter // Stor bokstav på namespace
         public void TestAddSuffixToFile()
         {
             string expectedResult = @"C:\Users\91danand\Desktop\äpplen\äpplen_Negative.jpg";
-            string 
+            string result = fileHandler.AddSuffixToFile(@"C:\Users\91danand\Desktop\äpplen\äpplen.jpg", "Negative");
+            Assert.AreEqual(expectedResult, result);
+        }
+
+        [Test]
+        public void TestBlurred()
+        {
+            Bitmap testImageBlurred = new Bitmap(3, 3);
+            for (int x = 0; x < testImageBlurred.Width; x++)
+            {
+                for (int y = 0; y < testImageBlurred.Height; y++)
+                {
+                    testImageBlurred.SetPixel(x, y, Color.FromArgb(255, 255, 255));
+                    if (y == 1 && x == 1)
+                    {
+                        testImageBlurred.SetPixel(x, y, Color.FromArgb(0, 0, 0));
+                    }
+                }
+            }
+
+            Bitmap expectedResult = new Bitmap(3, 3);
+            for (int x = 0; x < expectedResult.Width; x++)
+            {
+                for (int y = 0; y < expectedResult.Height; y++)
+                {
+                    if (x == 1 && y == 1)
+                    {
+                        expectedResult.SetPixel(x, y, Color.FromArgb(226, 226, 226));
+                    }
+                    else if(x != 1 && y!= 1)
+                    {
+                        expectedResult.SetPixel(x, y, Color.FromArgb(191, 191, 191));
+                    }
+                    else
+                    {
+                        expectedResult.SetPixel(x, y, Color.FromArgb(212, 212, 212));
+                    }
+                }
+            }
+
+            Bitmap result = imageConverter.ConvertToBlurred(testImageBlurred);
+            for (int x = 0; x < testImageBlurred.Width; x++)
+            {
+                for (int y = 0; y < testImageBlurred.Height; y++)
+                {
+                    Assert.AreEqual(expectedResult.GetPixel(x, y), result.GetPixel(x, y));
+                }
+            }
         }
     }
 }

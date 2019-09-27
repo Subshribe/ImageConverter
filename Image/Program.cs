@@ -14,8 +14,6 @@ namespace Image
             Bitmap image = null;
             ImageConverter imageConverter = new ImageConverter();
             string filePath = null;
-            try // tightare try runt felkällan
-            {
                 if (args.Length == 0)
                 {
                     Console.WriteLine("Select an image to convert");
@@ -25,16 +23,19 @@ namespace Image
                 {
                     filePath = args[0];
                 }
-                if (importImage.TryIfFilePathIsAnImage(filePath))
+                try
                 {
-                    image = new Bitmap(filePath);
+                    if (importImage.TryIfFilePathIsAnImage(filePath))
+                    {
+                        image = new Bitmap(filePath);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong input");
+                        Environment.Exit(0);
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Wrong input");
-                    Environment.Exit(0);
-                }
-            }
+            
             catch (FileNotFoundException)
             {
                 Console.WriteLine("File dont exist, try again");
