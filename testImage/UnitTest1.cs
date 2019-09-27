@@ -3,7 +3,7 @@ using System.Drawing;
 using ImageClassLibrary;
 
 
-namespace testImageConverter // Stor bokstav på namespace
+namespace TestImageConverter // Stor bokstav på namespace
 {
     public class TestImageConverter
     {
@@ -76,7 +76,7 @@ namespace testImageConverter // Stor bokstav på namespace
         }
 
         [Test]
-        public void TestBlurred()
+        public void TestConvertToBlurred()
         {
             Bitmap testImageBlurred = new Bitmap(3, 3);
             for (int x = 0; x < testImageBlurred.Width; x++)
@@ -100,7 +100,7 @@ namespace testImageConverter // Stor bokstav på namespace
                     {
                         expectedResult.SetPixel(x, y, Color.FromArgb(226, 226, 226));
                     }
-                    else if(x != 1 && y!= 1)
+                    else if (x != 1 && y != 1)
                     {
                         expectedResult.SetPixel(x, y, Color.FromArgb(191, 191, 191));
                     }

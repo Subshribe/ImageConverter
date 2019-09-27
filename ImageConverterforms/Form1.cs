@@ -50,18 +50,18 @@ namespace ImageConverterforms
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-            pictureBox2.Image = new Bitmap(openFileDialog1.FileName);
+                pictureBox2.Image = new Bitmap(openFileDialog1.FileName);
             }
         }
 
         private void Button5_Click(object sender, EventArgs e)
         {
             saveFileDialog1.FileName = pictureBox1.Name;
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-            pictureBox1.Image.Save(saveFileDialog1.FileName);
+                pictureBox1.Image.Save(saveFileDialog1.FileName);
             }
 
 
