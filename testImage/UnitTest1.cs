@@ -3,7 +3,7 @@ using System.Drawing;
 using ImageClassLibrary;
 
 
-namespace TestImageConverter // Stor bokstav på namespace
+namespace TestImageConverter 
 {
     public class TestImageConverter
     {
@@ -30,6 +30,7 @@ namespace TestImageConverter // Stor bokstav på namespace
                     expectedResult.SetPixel(x, y, Color.FromArgb(110, 135, 50));
                 }
             }
+            
             Bitmap result = imageConverter.ConvertToNegative(testImageNegative);
             for (int x = 0; x < testImageNegative.Width; x++)
             {
@@ -39,6 +40,7 @@ namespace TestImageConverter // Stor bokstav på namespace
                 }
             }
         }
+       
         [Test]
         public void TestConvertToBlackAndWhite()
         {
@@ -50,6 +52,7 @@ namespace TestImageConverter // Stor bokstav på namespace
                     testBlackAndWhite.SetPixel(x, y, Color.FromArgb(120, 150, 100));
                 }
             }
+            
             Bitmap expectedResult = new Bitmap(5, 5);
             for (int x = 0; x < expectedResult.Width; x++)
             {
@@ -58,6 +61,7 @@ namespace TestImageConverter // Stor bokstav på namespace
                     expectedResult.SetPixel(x, y, Color.FromArgb(123, 123, 123));
                 }
             }
+            
             Bitmap result = imageConverter.ConvertToBlackAndWhite(testBlackAndWhite);
             for (int x = 0; x < testBlackAndWhite.Width; x++)
             {
@@ -67,6 +71,7 @@ namespace TestImageConverter // Stor bokstav på namespace
                 }
             }
         }
+        
         [Test]
         public void TestAddSuffixToFile()
         {

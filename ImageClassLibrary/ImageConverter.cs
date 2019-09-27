@@ -92,6 +92,7 @@ namespace ImageClassLibrary
                         greenSum += pixel.G;
                         blueSum += pixel.B;
                     }
+
                     redSum = redSum / pixels.Count;
                     greenSum = greenSum / pixels.Count;
                     blueSum = blueSum / pixels.Count;

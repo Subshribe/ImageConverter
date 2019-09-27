@@ -35,7 +35,6 @@ namespace Image
                     Environment.Exit(0);
                 }
             }
-
             catch (FileNotFoundException)
             {
                 Console.WriteLine("File dont exist, try again");
@@ -62,7 +61,6 @@ namespace Image
             blurredImage.Dispose();
 
             image.Dispose();
-
         }
     }
 }

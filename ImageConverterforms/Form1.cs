@@ -18,8 +18,6 @@ namespace ImageConverterforms
         {
             InitializeComponent();
         }
-
-
         private void Button1_Click(object sender, EventArgs e)
         {
             ImageClassLibrary.ImageConverter imageConverter = new ImageClassLibrary.ImageConverter();
@@ -34,7 +32,6 @@ namespace ImageConverterforms
             pictureBox1.Image = imageConverter.ConvertToBlackAndWhite((Bitmap)pictureBox2.Image);
             pictureBox1.Name = importImg.AddSuffixToFile(openFileDialog1.FileName, "blackAndWhite");
         }
-
         private void Button3_Click(object sender, EventArgs e)
         {
             ImageClassLibrary.ImageConverter imageConverter = new ImageClassLibrary.ImageConverter();
@@ -42,12 +39,10 @@ namespace ImageConverterforms
             pictureBox1.Image = imageConverter.ConvertToBlurred((Bitmap)pictureBox2.Image);
             pictureBox1.Name = importImg.AddSuffixToFile(openFileDialog1.FileName, "blurred");
         }
-
         private void PictureBox2_Click(object sender, EventArgs e)
         {
 
         }
-
         private void Button4_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -55,7 +50,6 @@ namespace ImageConverterforms
                 pictureBox2.Image = new Bitmap(openFileDialog1.FileName);
             }
         }
-
         private void Button5_Click(object sender, EventArgs e)
         {
             saveFileDialog1.FileName = pictureBox1.Name;
@@ -63,8 +57,6 @@ namespace ImageConverterforms
             {
                 pictureBox1.Image.Save(saveFileDialog1.FileName);
             }
-
-
         }
     }
 }
