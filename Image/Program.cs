@@ -14,28 +14,28 @@ namespace Image
             Bitmap image = null;
             ImageConverter imageConverter = new ImageConverter();
             string filePath = null;
-                if (args.Length == 0)
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Select an image to convert");
+                filePath = Console.ReadLine();
+            }
+            else
+            {
+                filePath = args[0];
+            }
+            try
+            {
+                if (importImage.TryIfFilePathIsAnImage(filePath))
                 {
-                    Console.WriteLine("Select an image to convert");
-                    filePath = Console.ReadLine();
+                    image = new Bitmap(filePath);
                 }
                 else
                 {
-                    filePath = args[0];
+                    Console.WriteLine("Wrong input");
+                    Environment.Exit(0);
                 }
-                try
-                {
-                    if (importImage.TryIfFilePathIsAnImage(filePath))
-                    {
-                        image = new Bitmap(filePath);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Wrong input");
-                        Environment.Exit(0);
-                    }
-                }
-            
+            }
+
             catch (FileNotFoundException)
             {
                 Console.WriteLine("File dont exist, try again");
